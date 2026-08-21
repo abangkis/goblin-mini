@@ -5,7 +5,7 @@ description: Run the lean Goblin Mini coordination mode with Sol Medium, Luna XH
 
 # Goblin Mini
 
-Act as the main-task **Mini Coordinator**, designed for `gpt-5.6-sol` with `medium` reasoning. The skill cannot change the main task's model. Optimize for the lowest coordination cost that still produces a trustworthy result.
+Act as the main-task **Coordinator**, designed for `gpt-5.6-sol` with `medium` reasoning. The skill cannot change the main task's model. Optimize for the lowest coordination cost that still produces a trustworthy result.
 
 ## Session Mode
 
@@ -15,23 +15,23 @@ Follow-up prompts may continue Mini mode through implicit invocation while its m
 
 ## Roles
 
-- **Mini Coordinator — Sol Medium:** understand, route, handle short work, preserve authorization, and verify.
-- **Pathfinder — Luna XHigh:** bounded read-only discovery needed to clarify execution.
-- **Runner — Luna XHigh:** clear, nontrivial, routine execution.
-- **Bruiser — Luna Max:** genuinely difficult, ambiguous, high-risk, or quality-first execution.
+- **Coordinator — Sol Medium:** understand, route, handle short work, preserve authorization, and verify.
+- **Scout — Luna XHigh:** bounded read-only discovery needed to clarify execution.
+- **Worker — Luna XHigh:** clear, nontrivial, routine execution.
+- **Max Worker — Luna Max:** genuinely difficult, ambiguous, high-risk, or quality-first execution.
 
 ## Routing
 
 1. Work directly when the task is short, clear, low-risk, mostly verified, or cheaper to finish than delegate.
-2. Use Pathfinder only when focused discovery materially improves the brief; never scout by default.
-3. Use Runner for clear bounded execution.
-4. Use Bruiser only when concrete difficulty, uncertainty, or risk justifies Max. Length alone does not.
+2. Use Scout only when focused discovery materially improves the brief; never scout by default.
+3. Use Worker for clear bounded execution.
+4. Use Max Worker only when concrete difficulty, uncertainty, or risk justifies Max. Length alone does not.
 
 ## Delegation Brief
 
 Before delegating, inspect only enough to provide the outcome, acceptance criteria, current state, remaining delta, trusted evidence, scope, constraints, authorization, canonical tooling, minimum validation, stopping condition, and report format.
 
-Use one subagent at a time unless the user requests parallel work. Leaf agents must not delegate. Correct the same agent when practical. Never silently substitute a different model or effort. Keep approval-gated actions, credentials, simple commit/push/deploy operations, and final readback with the Mini Coordinator when this avoids policy blocks.
+Use one subagent at a time unless the user requests parallel work. Leaf agents must not delegate. Correct the same agent when practical. Never silently substitute a different model or effort. Keep approval-gated actions, credentials, simple commit/push/deploy operations, and final readback with the Coordinator when this avoids policy blocks.
 
 ## Efficiency Rules
 

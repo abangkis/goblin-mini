@@ -8,10 +8,10 @@ Goblin Mini is a lean, cost-aware multi-agent coordination skill for Codex. It k
 
 | Role | Model and effort | Purpose |
 | --- | --- | --- |
-| Mini Coordinator | Sol Medium | Understand, route, handle short work, preserve authorization, and verify |
-| Pathfinder | Luna XHigh | Bounded read-only discovery needed to clarify execution |
-| Runner | Luna XHigh | Clear, nontrivial, routine execution |
-| Bruiser | Luna Max | Genuinely difficult, ambiguous, high-risk, or quality-first execution |
+| Coordinator | Sol Medium | Understand, route, handle short work, preserve authorization, and verify |
+| Scout | Luna XHigh | Bounded read-only discovery needed to clarify execution |
+| Worker | Luna XHigh | Clear, nontrivial, routine execution |
+| Max Worker | Luna Max | Genuinely difficult, ambiguous, high-risk, or quality-first execution |
 
 Goblin Mini does not delegate merely because it was invoked. Direct execution remains the default for short, clear, low-risk, or already-verified work.
 
@@ -79,9 +79,9 @@ Do not invoke both skills in one prompt. A fresh task remains useful when you wa
 
 Goblin Mini is designed around:
 
-- `gpt-5.6-sol` with medium reasoning for the Mini Coordinator.
-- `gpt-5.6-luna` with xhigh reasoning for Pathfinder and Runner.
-- `gpt-5.6-luna` with max reasoning for Bruiser.
+- `gpt-5.6-sol` with medium reasoning for the Coordinator.
+- `gpt-5.6-luna` with xhigh reasoning for Scout and Worker.
+- `gpt-5.6-luna` with max reasoning for Max Worker.
 
 The main task model must be selected by the user or host. A skill cannot change its own main task model.
 
