@@ -1,4 +1,6 @@
 interface:
   display_name: "Goblin Mini"
   short_description: "Lean cost-aware coordination for Codex tasks"
-  default_prompt: "Use $goblin-mini to complete this task through the leanest safe execution path."
+  default_prompt: "Use $goblin-mini to activate Mini mode until I invoke $goblin-crew, then complete the following work:"
+policy:
+  allow_implicit_invocation: true

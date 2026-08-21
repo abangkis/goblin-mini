@@ -8,10 +8,10 @@ Goblin Mini is a lean, cost-aware multi-agent coordination skill for Codex. It k
 
 | Role | Model and effort | Purpose |
 | --- | --- | --- |
-| Coordinator | Sol Medium | Understand, route, handle short work, preserve authorization, and verify |
-| Scout | Luna XHigh | Bounded read-only discovery needed to clarify execution |
-| Worker | Luna XHigh | Clear, nontrivial, routine execution |
-| Smart Worker | Luna Max | Genuinely difficult, ambiguous, high-risk, or quality-first execution |
+| Mini Coordinator | Sol Medium | Understand, route, handle short work, preserve authorization, and verify |
+| Pathfinder | Luna XHigh | Bounded read-only discovery needed to clarify execution |
+| Runner | Luna XHigh | Clear, nontrivial, routine execution |
+| Bruiser | Luna Max | Genuinely difficult, ambiguous, high-risk, or quality-first execution |
 
 Goblin Mini does not delegate merely because it was invoked. Direct execution remains the default for short, clear, low-risk, or already-verified work.
 
@@ -56,37 +56,32 @@ The task may be written in any language. The skill itself is written entirely in
 - Retry only the failed stage once after a material fix.
 - Use one authoritative final readback when sufficient.
 
-## Usage and Cost Reporting
+## Session Mode and Switching
 
-Goblin Mini always reports the roles and models actually used. It reports exact token usage only when authoritative usage metadata is available for every call, and currency cost only when authoritative current pricing is also available.
-
-Local Codex skills may not receive per-call usage metadata. In that case Goblin Mini reports:
+Invoke Goblin Mini once to activate Mini mode for subsequent work in the same task:
 
 ```text
-Token cost: unavailable (usage metadata not exposed).
+$goblin-mini
+Complete the following work: ...
 ```
 
-It never estimates or invents token usage or cost.
+Later prompts can focus on the work without repeating the invocation. Goblin Mini marks each final report with:
 
-## Switching Coordination Skills
+```text
+Active Goblin Mode: MINI — switch with $goblin-crew.
+```
 
-The recommended practice is to start a new Codex task when switching between [Goblin Mini](https://github.com/abangkis/goblin-mini) and [Goblin Crew](https://github.com/abangkis/goblin-crew). A fresh task gives the new skill a clean coordination context and makes its routing decisions easier to understand.
+Invoke `$goblin-crew` once to switch modes. The latest explicit invocation or mode marker wins; the policies are never combined. Existing context and trustworthy evidence remain available across switches, but the inactive routing policy is ignored. If compaction removes the marker, invoke the desired skill once again.
 
-Switching skills inside an existing task is still possible: explicitly invoke the desired skill in a later prompt. Be aware that:
-
-- The main task model does not change automatically.
-- Existing context, evidence, and earlier routing decisions remain in the task and may influence the new route.
-- Invoking both skills in the same prompt can create ambiguous routing because their policies overlap but select different Scout and Smart Worker configurations.
-
-Use only one coordination skill per prompt. Prefer Goblin Mini for the leanest cost-aware route, and start a fresh task with Goblin Crew when stronger Sol-based exploration or strategic judgment is needed.
+Do not invoke both skills in one prompt. A fresh task remains useful when you want completely clean context, but it is not required for ordinary mode switching.
 
 ## Compatibility
 
 Goblin Mini is designed around:
 
-- `gpt-5.6-sol` with medium reasoning for the main Coordinator.
-- `gpt-5.6-luna` with xhigh reasoning for Scout and Worker.
-- `gpt-5.6-luna` with max reasoning for Smart Worker.
+- `gpt-5.6-sol` with medium reasoning for the Mini Coordinator.
+- `gpt-5.6-luna` with xhigh reasoning for Pathfinder and Runner.
+- `gpt-5.6-luna` with max reasoning for Bruiser.
 
 The main task model must be selected by the user or host. A skill cannot change its own main task model.
 
