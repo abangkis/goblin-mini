@@ -1,0 +1,4 @@
+interface:
+  display_name: "Goblin Mini"
+  short_description: "Lean cost-aware coordination for Codex tasks"
+  default_prompt: "Use $goblin-mini to complete this task through the leanest safe execution path."
