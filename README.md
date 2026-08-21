@@ -68,6 +68,18 @@ Token cost: unavailable (usage metadata not exposed).
 
 It never estimates or invents token usage or cost.
 
+## Switching Coordination Skills
+
+The recommended practice is to start a new Codex task when switching between [Goblin Mini](https://github.com/abangkis/goblin-mini) and [Goblin Crew](https://github.com/abangkis/goblin-crew). A fresh task gives the new skill a clean coordination context and makes its routing decisions easier to understand.
+
+Switching skills inside an existing task is still possible: explicitly invoke the desired skill in a later prompt. Be aware that:
+
+- The main task model does not change automatically.
+- Existing context, evidence, and earlier routing decisions remain in the task and may influence the new route.
+- Invoking both skills in the same prompt can create ambiguous routing because their policies overlap but select different Scout and Smart Worker configurations.
+
+Use only one coordination skill per prompt. Prefer Goblin Mini for the leanest cost-aware route, and start a fresh task with Goblin Crew when stronger Sol-based exploration or strategic judgment is needed.
+
 ## Compatibility
 
 Goblin Mini is designed around:
